@@ -1,0 +1,11 @@
+---
+
+nginx_server_name: "{{ inventory_hostname }}"
+nginx_ssl_dest_dir: /etc/ssl
+nginx_strong_dh_group: true  # See weakdh.org.
+nginx_use_letsencrypt: true
+
+# The 'certbot' role will automatically generate these files.
+letsencrypt_dir: "/etc/letsencrypt/live/{{ inventory_hostname }}"
+letsencrypt_cert_filename: fullchain.pem
+letsencrypt_privkey_filename: privkey.pem
