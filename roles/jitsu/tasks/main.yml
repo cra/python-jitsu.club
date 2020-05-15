@@ -1,0 +1,25 @@
+---
+
+- name: Ensure directory exists
+  file:
+    path: /webapps/{{ domain_name }}
+    mode: 0755
+    state: directory
+
+- name: Copy index.html
+  template:
+    src: "{{ domain_name}}/index.html.j2"
+    dest: "/webapps/{{ domain_name }}/index.html"
+  notify: reload nginx
+
+- name: Ensure img directory exists
+  file:
+    path: "/webapps/{{ domain_name }}"
+    mode: 0755
+    state: directory
+
+- name: Copy img
+  copy:
+    src: "{{ domain_name }}/img/"
+    dest: "/webapps/{{ domain_name }}/img/"
+    mode: 0755

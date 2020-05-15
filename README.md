@@ -1,5 +1,12 @@
 # Образцовая документация
 
+Установить нужные роли сначала:
 ```
-ansible-playbook install_all_the_things.yml
+ansible-galaxy install geerlingguy.certbot
+ansible-galaxy install geerlingguy.nginx
+```
+
+А потом выкатить снова всё:
+```
+ansible-playbook site.yml
 ```

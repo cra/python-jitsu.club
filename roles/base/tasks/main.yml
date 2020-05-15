@@ -1,12 +1,40 @@
 ---
 
-- name: Install security updates
-  apt: default_release={{ ansible_distribution_release }}-security
-       update_cache={{ update_apt_cache }}
-       upgrade=dist
-  tags:
-    - packages
-    - skip_ansible_lint
+- name: Create my user
+  user:
+    name: shrimpsizemoose
+    shell: /bin/bash
+
+- name: Add my ssh keys
+  authorized_key:
+    user: shrimpsizemoose
+    state: present
+    key: "{{ lookup('file', lookup('env', 'HOME') + '/.ssh/id_rsa.pub') }}"
+
+- name: Ensure terminfo directory exists
+  file:
+    path: "{{ item.basepath }}/.terminfo/x"
+    owner: "{{ item.user }}"
+    mode: 0755
+    state: directory
+    recurse: true
+  with_items:
+    - basepath: /root
+      user: root
+    - basepath: /home/shrimpsizemoose
+      user: shrimpsizemoose
+
+- name: Copy terminfo
+  copy:
+    src: xterm-termite
+    dest: "{{ item.basepath }}/.terminfo/x/xterm-termite"
+    owner: "{{ item.user }}"
+    state: directory
+  with_items:
+    - basepath: /root
+      user: root
+    - basepath: /home/shrimpsizemoose
+      user: shrimpsizemoose
 
 - name: Install base packages
   apt:
@@ -22,12 +50,7 @@
       - "{{ base_python_package }}-pip"
       - "i{{ base_python_package }}"
       - supervisor
-  tags:
-    - packages
-    - packages.security
+      - tmux
 
 - name: Upgrade pip
   pip: name=pip state=latest
-  tags:
-    - packages
-    - skip_ansible_lint
