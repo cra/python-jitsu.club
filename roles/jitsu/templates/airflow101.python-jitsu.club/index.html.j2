@@ -1,32 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Airflow101 by Python Jitsu Club</title>
-	<style>
-        p.message {
-            text-align: center;
-            font-size: 18pt;
-	}
-	img.airflow {
-            margin-top: 50px;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      /* from https://stackoverflow.com/questions/54702124/ */
+      .rainbow {
+          text-align: left;
+          text-decoration: underline;
+          font-size: 32px;
+          font-family: monospace;
+          letter-spacing: 5px;
+      }
+      .rainbow_text_animated {
+          background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: rainbow_animation 6s ease-in-out infinite;
+          background-size: 400% 100%;
+      }
 
-	    left: 50%;
-	    width: 200px;
-	    -webkit-animation:spin 6s linear infinite;
-	    -moz-animation:spin 6s linear infinite;
-	    animation:spin 6s linear infinite;
-	}
-	@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
-	@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
-	@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
-        </style>
-</head>
-<body>
-	<p class="message">А мне как раз было нечем заняться!</p>
-	<img class="airflow" alt="python logo" src="img/stretchy-female.jpg">
+      @keyframes rainbow_animation {
+          0%,100% {
+              background-position: 0 0;
+          }
 
-</body>
+          50% {
+              background-position: 100% 0;
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="rainbow rainbow_text_animated">Учим Apache Airflow за три недели</h1>
+    <code><pre>
+
+Вы хотите научиться варить Airflow. Мы учим вас варить Airflow. Всё просто.
+
+
+
+## Для кого
+
+Вы хотите выучить Airflow. Чтобы круче работать или прокачать своё резюме. Или потому что любите чистые зубы.
+
+Чтобы не пришлось учить вас ходить, вы должны знать Python, азы SQL, уметь пользоваться консолью и быть в состоянии
+поднять базу данных и уметь пользоваться гитом.
+
+
+
+## Формат интенсива
+
+Два практических вебинара в неделю, после каждого из них домашка и новый список материалов для чтения.
+Все домашки смотрят живые человеки и доёбываются до каждой запятой.
+
+В учебной группе всего 5-7 человек. Общаемся в чатике в Телеге.
+
+Все материалы курса выкладываем в открытый доступ.
+
+
+
+## Программа
+
+Вот очень поверхностный план:
+- Airflow, DAG, scheduling и другие базовые базворды.
+- Источники и сенсоры: какие бывают и как пользоваться.
+- Кастомные операторы, свои сенсоры, сбор в устанавливаемый пакет.
+- Branch, shortcircuit, triggerdags, XCOM.
+- Мониторинг, настройка параллельности, экспорт в Prometeus.
+- Плагины, темплейты, rbac, организация кода, стейджинги.
+
+
+
+## Даты
+
+Вебинары проходят в понедельник и четверг, в 19:00. Первый вебинар 1 июня. Последний вебинар 18 июня.
+Потом ещё неделю на выпускной проект и 25 июня защита.
+
+Всего месяц – и вы умеете в Airflow. Правда, это будет не самый простой месяц.
+
+
+
+## Стоимость
+
+Бесплатно и даже можно заработать. Рассказываю.
+
+Перед началом курса вы отдаёте нам 5000 рублей. Мы взносы от от всех студентов складываем в общую кучу.
+
+После курса мы берём всех, кто дошёл до конца, выполнил все домашки в срок и вообще молодец, и делим
+поровну между ними эту кучу.
+
+Получается, что если вы отвалитесь до конца курса, он стоил вам 5к. Если вся группа дойдёт до конца – вы получите
+свои 5к обратно. Если вы дойдёте до конца, а кто-то другой нет – вы получите больше.
+
+Мы хотим попробовать использовать эту механику потому что она форсит участников успешно пройти курс.
+Ну и ещё это прикольно.
+
+Мы, организаторы, ничего себе не берём. Потому что можем.
+
+
+
+## Про нас
+
+Над курсом трудятся:
+
+- Игорь Мосягин, специалист по машинному обучению и аналазиу данных в R&D Lamoda.
+- Филипп Кузнецов, Co-Founder << ex-CTO << Chief Data Officer |> BestDoctor.
+- Илья Лебедев, сооснователь dvmn.org, соавтор learn.python.ru, CTO.
+
+
+
+## Как принять участие
+
+1. Выполнить тест и положить md-файлик с ответами на свой Гитхаб.
+2. Ссылку на тест с ответами скинуть Илье (<a href="https://t.me/melevir" target="_blank">https://t.me/melevir</a>).
+3. Дождаться подтверждения о том, что вы в группе.
+4. Сказать друзьям и родным, что в июне вы будете заняты.
+    </pre></code>
+    <a href="https://gist.github.com/Melevir/478d5fc40301d4d95f3f9dc63a65b402" target="_blank" style="margin-top: 15px">
+      <img src="img/cta.png" width="300px"/>
+    </a>
+  </body>
+</html>
