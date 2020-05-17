@@ -1,6 +1,12 @@
+MAIN_PLAYBOOK=site.yml
+
+list-tasks:
+	ansible-playbook --list-tasks ${MAIN_PLAYBOOK}
+
+
 @deploy:
-	ansible-playbook site.yml
+	ansible-playbook ${MAIN_PLAYBOOK}
 
 
 deploy-html:
-	ansible-playbook site.yml --start-at-task "jitsu : Ensure directory exists"
+	ansible-playbook ${MAIN_PLAYBOOK} --start-at-task "jitsu : Ensure directory exists"
