@@ -8,7 +8,7 @@
 
 - name: Copy index.html
   template:
-    src: "{{ domain_name}}/index.html.j2"
+    src: "{{ domain_name}}/index.html"
     dest: "/webapps/{{ domain_name }}/index.html"
   notify: reload nginx
 
